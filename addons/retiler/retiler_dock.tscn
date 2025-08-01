@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds88x6cqnfu42"]
+
+[ext_resource type="Script" uid="uid://bfooksy80fv4q" path="res://addons/retiler/retiler_dock.gd" id="1_yn0yr"]
+
+[node name="Retiler" type="Control" node_paths=PackedStringArray("save_to_path_field", "file_name_field")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yn0yr")
+save_to_path_field = NodePath("SaveToPathField")
+file_name_field = NodePath("FileNameField")
+
+[node name="TileSetLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 52.0
+offset_bottom = 23.0
+text = "TileSet"
+
+[node name="TileSetPicker" type="EditorResourcePicker" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 121.0
+offset_bottom = 31.0
+grow_horizontal = 2
+base_type = "TileSet"
+
+[node name="TextureLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 51.0
+offset_right = 60.0
+offset_bottom = 74.0
+text = "Texture"
+
+[node name="TexturePicker" type="EditorResourcePicker" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 121.0
+offset_top = 35.0
+offset_bottom = 99.0
+grow_horizontal = 2
+base_type = "Texture2D"
+
+[node name="SaveToPathLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 104.0
+offset_right = 104.0
+offset_bottom = 127.0
+text = "Save to Path"
+
+[node name="SaveToPathField" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 121.0
+offset_top = 103.0
+offset_bottom = 138.0
+grow_horizontal = 2
+text = "res://"
+placeholder_text = "res://some_path"
+emoji_menu_enabled = false
+
+[node name="FileNameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 143.0
+offset_right = 104.0
+offset_bottom = 166.0
+text = "File Name"
+
+[node name="FileNameField" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 121.0
+offset_top = 142.0
+offset_bottom = 177.0
+grow_horizontal = 2
+text = "retiledmap"
+placeholder_text = "some_name"
+emoji_menu_enabled = false
+
+[node name="GenerateButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 181.0
+offset_bottom = 212.0
+grow_horizontal = 2
+text = "Generate TileMapLayer"
+
+[node name="OpenSceneCheckBox" type="CheckBox" parent="."]
+layout_mode = 1
+offset_top = 216.0
+offset_right = 268.0
+offset_bottom = 247.0
+button_pressed = true
+text = "Open new scene on generation"
+
+[node name="UseSimilarCheckBox" type="CheckBox" parent="."]
+offset_top = 251.0
+offset_right = 268.0
+offset_bottom = 282.0
+button_pressed = true
+text = "Use most similar tile if none exist"
+
+[connection signal="resource_changed" from="TileSetPicker" to="." method="_on_tile_set_picker_resource_changed"]
+[connection signal="resource_changed" from="TexturePicker" to="." method="_on_texture_picker_resource_changed"]
+[connection signal="pressed" from="GenerateButton" to="." method="_on_generate_button_pressed"]
