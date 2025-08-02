@@ -9,6 +9,6 @@ To use, simply add the `addons/retiler` directory to your Godot project and enab
 
 Set `TileSet` to the TileSet of your choice, then set `Texture` to your texture of an exported tilemap.
 
-`Save to Path` represents the directory your TileMapLayer will be saved in. `File Name` represents the name of the file and Node that your TileMapLayer will be.
+`Save to Path` represents the directory your TileMapLayer will be saved in. `File Name` represents the name of the file and Node that your TileMapLayer will be saved to.
 
 Click the `Generate TileMapLayer` button to generate your TileMapLayer.
